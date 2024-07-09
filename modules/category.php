@@ -20,20 +20,25 @@
 		<div class="x_content">
 			<br>
 			<?php
-			if (isset($_POST["addNew"]) || isset($_GET["edit"])) {
+			if (isset($_POST["addNew"])) {
 				$catName = $_POST["cat_name"];
 				$status = isset($_POST["status"]) ? 1 : 0; // Nếu tồn tại hay nói khác là người fugd kích vào hiện là 1 bỏ là 0
 				$date_create = date("Y-m-d H:i:s"); //Hàm date năm tháng ngày giờ phút giây lấy thồn tin
-				if (isset($_GET["id"])) {
+				if (isset($_GET["id"]) && isset($_GET["edit"])) {
 					//Sửa theo id
 					$sql = "UPDATE category SET cat_name='$catName', `status`='$status',date_update='$date_create' WHERE cat_id =" . $_GET["id"];
 					mysqli_query($conn, $sql) or ("Lỗi câu lệnh cập nhật ");
 					header("localhost:index.php?page=category");
 				} else {
-					$sql = "INSERT INTO category (`cat_name`, `status`, `date_create`)";
-					$sql .= "VALUES ('$catName','$status','$date_create')";
-					//Thực thi câu lệnh truy vấn.
-					mysqli_query($conn, $sql) or ("Lỗi câu lệnh thêm mới");
+					// $sql = "INSERT INTO category (`cat_name`, `status`, `date_create`)";
+					// $sql .= "VALUES ('$catName','$status','$date_create')";
+					// //Thực thi câu lệnh truy vấn.
+					// mysqli_query($conn, $sql) or ("Lỗi câu lệnh thêm mới");
+					$table = "category";
+					$_POST["status"] = $status;
+					$_POST["date_create"] = $date_create;
+					$data = $_POST;
+					addNew($table, $data, $conn);
 				}
 			}
 			//Kiểm tra tham số id trên url
@@ -136,7 +141,7 @@
 								<th scope="row"><?php echo $i; ?></th>
 								<td><?php echo $row["cat_name"] ?></td>
 								<td><?php echo ($row["status"] ? "Hiển thị" : "Ẩn") ?></td>
-								<td><?php echo date("d-m-Y H-i-s", strtotime($row["date_create"])) ?></td>
+								<td><?php echo date("d-m-Y H:i:s", strtotime($row["date_create"])) ?></td>
 								<td>
 									<a href="index.php?page=category&id=<?php echo $row["cat_id"] ?>&edit=1">
 										<i class="fa fa-pencil" style="color:#0066FF"> Sửa </i></a>

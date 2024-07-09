@@ -1,84 +1,14 @@
 <section class="section-margin--small mb-5">
     <div class="container">
         <div class="row">
-            <div class="col-xl-3 col-lg-4 col-md-5">
-                <div class="sidebar-categories">
-                    <div class="head">Browse Categories</div>
-                    <ul class="main-categories">
-                        <li class="common-filter">
-                            <form action="#">
-                                <ul>
-                                    <li class="filter-list"><input class="pixel-radio" type="radio" id="men" name="brand"><label for="men">Men<span> (3600)</span></label></li>
-                                    <li class="filter-list"><input class="pixel-radio" type="radio" id="women" name="brand"><label for="women">Women<span> (3600)</span></label></li>
-                                    <li class="filter-list"><input class="pixel-radio" type="radio" id="accessories" name="brand"><label for="accessories">Accessories<span> (3600)</span></label></li>
-                                    <li class="filter-list"><input class="pixel-radio" type="radio" id="footwear" name="brand"><label for="footwear">Footwear<span> (3600)</span></label></li>
-                                    <li class="filter-list"><input class="pixel-radio" type="radio" id="bayItem" name="brand"><label for="bayItem">Bay item<span> (3600)</span></label></li>
-                                    <li class="filter-list"><input class="pixel-radio" type="radio" id="electronics" name="brand"><label for="electronics">Electronics<span> (3600)</span></label></li>
-                                    <li class="filter-list"><input class="pixel-radio" type="radio" id="food" name="brand"><label for="food">Food<span> (3600)</span></label></li>
-                                </ul>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-                <div class="sidebar-filter">
-                    <div class="top-filter-head">Product Filters</div>
-                    <div class="common-filter">
-                        <div class="head">Brands</div>
-                        <form action="#">
-                            <ul>
-                                <li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">Apple<span>(29)</span></label></li>
-                                <li class="filter-list"><input class="pixel-radio" type="radio" id="asus" name="brand"><label for="asus">Asus<span>(29)</span></label></li>
-                                <li class="filter-list"><input class="pixel-radio" type="radio" id="gionee" name="brand"><label for="gionee">Gionee<span>(19)</span></label></li>
-                                <li class="filter-list"><input class="pixel-radio" type="radio" id="micromax" name="brand"><label for="micromax">Micromax<span>(19)</span></label></li>
-                                <li class="filter-list"><input class="pixel-radio" type="radio" id="samsung" name="brand"><label for="samsung">Samsung<span>(19)</span></label></li>
-                            </ul>
-                        </form>
-                    </div>
-                    <div class="common-filter">
-                        <div class="head">Color</div>
-                        <form action="#">
-                            <ul>
-                                <li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">Black<span>(29)</span></label></li>
-                                <li class="filter-list"><input class="pixel-radio" type="radio" id="balckleather" name="color"><label for="balckleather">Black
-                                        Leather<span>(29)</span></label></li>
-                                <li class="filter-list"><input class="pixel-radio" type="radio" id="blackred" name="color"><label for="blackred">Black
-                                        with red<span>(19)</span></label></li>
-                                <li class="filter-list"><input class="pixel-radio" type="radio" id="gold" name="color"><label for="gold">Gold<span>(19)</span></label></li>
-                                <li class="filter-list"><input class="pixel-radio" type="radio" id="spacegrey" name="color"><label for="spacegrey">Spacegrey<span>(19)</span></label></li>
-                            </ul>
-                        </form>
-                    </div>
-                    <div class="common-filter">
-                        <div class="head">Price</div>
-                        <div class="price-range-area">
-                            <div id="price-range" class="noUi-target noUi-ltr noUi-horizontal">
-                                <div class="noUi-base">
-                                    <div class="noUi-origin" style="left: 10%;">
-                                        <div class="noUi-handle noUi-handle-lower" data-handle="0" tabindex="0" role="slider" aria-orientation="horizontal" aria-valuemin="0.0" aria-valuemax="50.0" aria-valuenow="10.0" aria-valuetext="500.00" style="z-index: 5;"></div>
-                                    </div>
-                                    <div class="noUi-connect" style="left: 10%; right: 50%;"></div>
-                                    <div class="noUi-origin" style="left: 50%;">
-                                        <div class="noUi-handle noUi-handle-upper" data-handle="1" tabindex="0" role="slider" aria-orientation="horizontal" aria-valuemin="10.0" aria-valuemax="100.0" aria-valuenow="50.0" aria-valuetext="4000.00" style="z-index: 6;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="value-wrapper d-flex">
-                                <div class="price">Price:</div>
-                                <span>$</span>
-                                <div id="lower-value">500.00</div>
-                                <div class="to">to</div>
-                                <span>$</span>
-                                <div id="upper-value">4000.00</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php
+            include "../view/slidebar.php";
+            ?>
             <div class="col-xl-9 col-lg-8 col-md-7">
                 <!-- Start Filter Bar -->
                 <div class="filter-bar d-flex flex-wrap align-items-center">
                     <div class="sorting">
-                        <select style="display: none;">
+                        <!-- <select style="display: none;">
                             <option value="1">Default sorting</option>
                             <option value="1">Default sorting</option>
                             <option value="1">Default sorting</option>
@@ -89,10 +19,10 @@
                                 <li data-value="1" class="option">Default sorting</li>
                                 <li data-value="1" class="option">Default sorting</li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="sorting mr-auto">
-                        <select style="display: none;">
+                        <!-- <select style="display: none;">
                             <option value="1">Show 12</option>
                             <option value="1">Show 12</option>
                             <option value="1">Show 12</option>
@@ -103,7 +33,7 @@
                                 <li data-value="1" class="option">Show 12</li>
                                 <li data-value="1" class="option">Show 12</li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                     <div>
                         <div class="input-group filter-bar-search">

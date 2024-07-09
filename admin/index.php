@@ -1,7 +1,12 @@
 <?php
 ob_start();
+session_start();
+if (!$_SESSION["login"]) {
+  header("location:login.php");
+}
 date_default_timezone_set('Asia/Ho_Chi_Minh') .
-  include("modules/connection.php");
+  include("../modules/connection.php");
+include("../common.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,8 +45,8 @@ date_default_timezone_set('Asia/Ho_Chi_Minh') .
   <div class="container body">
     <div class="main_container">
       <?php
-      include("modules/leftMenu.php");
-      include("modules/topNav.php");
+      include("../modules/leftMenu.php");
+      include("../modules/topNav.php");
       ?>
 
       <!-- page content -->
@@ -51,7 +56,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh') .
           <?php
           if (isset($_GET["page"])) {
             $page = $_GET["page"];
-            $file = "modules/" . $page . ".php";
+            $file = "../modules/" . $page . ".php";
             include($file);
           }
           ?>

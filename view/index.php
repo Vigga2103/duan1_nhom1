@@ -7,13 +7,16 @@ if (isset($_GET["page"]) && ($_GET["page"] != "")) {
             include "../view/shop.php";
             break;
         case 'login':
-            include "view/login.php";
+            include "../view/login.php";
             break;
         case 'register':
-            include "view/register.php";
+            include "../view/register.php";
             break;
         case 'detail-product':
-            include "view/detail-product.php";
+            include "../view/detail-product.php";
+            break;
+        case 'payment':
+            include "../view/payment.php";
             break;
         default:
             include "../view/home.php";
