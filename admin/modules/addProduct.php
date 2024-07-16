@@ -21,6 +21,7 @@
             if (isset($_POST["addNew"])) {
                 // echo "pre";
                 // print_r($_POST);
+                // die;
                 $table = "product";
                 $_POST["status"] = 1;
                 $_POST["date_create"] = date("Y-m-d H:i:s");
@@ -28,8 +29,8 @@
                 $path = "uploads";
                 $fileName = "";
                 if (isset($_FILES["images"])) {
-                    // echo "<pre>";
-                    // print_r($_FILES);
+                    echo "<pre>";
+                    print_r($_FILES);
                     if (isset($_FILES["images"]["name"])) {
                         if ($_FILES["images"]["type"] == "image/jpeg" || $_FILES["images"]["type"] == "image/png" || $_FILES["images"]["type"] == "image/gif") {
                             if ($_FILES["images"]["size"] <= 24000000) {
@@ -48,12 +49,13 @@
                             echo "File không phải là ảnh";
                         }
                     } else {
-                        echo "Bạn chưa chconj file";
+                        echo "Bạn chưa chọn file";
                     }
                 }
                 $_POST["images"] = $fileName;
                 $data = $_POST;
                 addNew($table, $data, $conn);
+                header("location:index.php?page=listProduct");
             }
             ?>
             <br>
@@ -158,8 +160,7 @@
                 <div class="ln_solid"></div>
                 <div class="form-group row justify-content-center">
                     <div class="col-md-9 col-sm-9 text-center">
-                        <button type="button" class="btn btn-primary">Cancel</button>
-                        <button class="btn btn-primary" type="reset">Reset</button>
+                        <a href="index.php?page=listProduct"><button type="button" class="btn btn-primary">Cancel</button></a>
                         <button type="submit" class="btn btn-success" name="addNew">Submit</button>
                     </div>
                 </div>

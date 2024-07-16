@@ -32,12 +32,12 @@
                     <div class="single-footer-widget instafeed">
                         <h4 class="footer_title">Gallery</h4>
                         <ul class="list instafeed d-flex flex-wrap">
-                            <li><img src="img/gallery/r1.jpg" alt=""></li>
-                            <li><img src="img/gallery/r2.jpg" alt=""></li>
-                            <li><img src="img/gallery/r3.jpg" alt=""></li>
-                            <li><img src="img/gallery/r5.jpg" alt=""></li>
-                            <li><img src="img/gallery/r7.jpg" alt=""></li>
-                            <li><img src="img/gallery/r8.jpg" alt=""></li>
+                            <li><img src="view/img/gallery/r1.jpg" alt=""></li>
+                            <li><img src="view/img/gallery/r2.jpg" alt=""></li>
+                            <li><img src="view/img/gallery/r3.jpg" alt=""></li>
+                            <li><img src="view/img/gallery/r5.jpg" alt=""></li>
+                            <li><img src="view/img/gallery/r7.jpg" alt=""></li>
+                            <li><img src="view/img/gallery/r8.jpg" alt=""></li>
                         </ul>
                     </div>
                 </div>
@@ -93,14 +93,14 @@
 
 
 
-<script src="vendors/jquery/jquery-3.2.1.min.js"></script>
-<script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
-<script src="vendors/skrollr.min.js"></script>
-<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-<script src="vendors/nice-select/jquery.nice-select.min.js"></script>
-<script src="vendors/jquery.ajaxchimp.min.js"></script>
-<script src="vendors/mail-script.js"></script>
-<script src="js/main.js"></script>
+<script src="view/vendors/jquery/jquery-3.2.1.min.js"></script>
+<script src="view/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="view/vendors/skrollr.min.js"></script>
+<script src="view/vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="view/vendors/nice-select/jquery.nice-select.min.js"></script>
+<script src="view/vendors/jquery.ajaxchimp.min.js"></script>
+<script src="view/vendors/mail-script.js"></script>
+<script src="view/js/main.js"></script>
 </body>
 
 </html>

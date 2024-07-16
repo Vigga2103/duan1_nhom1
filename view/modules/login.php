@@ -1,3 +1,8 @@
+ <?php
+    ob_start();
+    session_start();
+
+    ?>
  <!--================Login Box Area =================-->
  <section class="login_box_area section-margin">
      <div class="container">
@@ -13,6 +18,11 @@
              </div>
              <div class="col-lg-6">
                  <div class="login_form_inner">
+                     <?php
+                        //    if($_POST["login"]){
+                        //         $
+                        //    }
+                        ?>
                      <h3>Log in to enter</h3>
                      <form class="row login_form" action="#/" id="contactForm">
                          <div class="col-md-12 form-group">
@@ -28,7 +38,7 @@
                              </div>
                          </div>
                          <div class="col-md-12 form-group">
-                             <button type="submit" value="submit" class="button button-login w-100">Log In</button>
+                             <button type="submit" value="submit" name="login" class="button button-login w-100">Log In</button>
                              <a href="#">Forgot Password?</a>
                          </div>
                      </form>

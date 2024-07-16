@@ -6,7 +6,7 @@ if (isset($_SESSION["login"])) {
     header("location: index.php");
 }
 date_default_timezone_set('Asia/Ho_Chi_Minh') .
-    include("../modules/connection.php");
+    include("../connection.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,9 +46,9 @@ date_default_timezone_set('Asia/Ho_Chi_Minh') .
                         if (isset($_POST["login"])) {
                             // echo "<pre>";
                             // print_r($_POST);
-                            $user_name = trim($_POST["user_name"]); //Cắt khoảng trắng đằng trc chuỗi và sau chuỗi
+                            $admin_name = trim($_POST["admin_name"]); //Cắt khoảng trắng đằng trc chuỗi và sau chuỗi
                             $password = md5(trim($_POST["password"]));
-                            $sqlLogin = "SELECT * FROM user WHERE user_name = '$user_name' and `password`= '$password'";
+                            $sqlLogin = "SELECT * FROM admin WHERE admin_name = '$admin_name' and `password`= '$password'";
                             $result = mysqli_query($conn, $sqlLogin);
                             if (mysqli_num_rows($result)) {
                                 //Nếu mà ra đc kết quả tạo session
@@ -63,7 +63,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh') .
                         ?>
                         <h1>Login Form</h1>
                         <div>
-                            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Username" required="" />
+                            <input type="text" class="form-control" id="admin_name" name="admin_name" placeholder="Adminname" required="" />
                         </div>
                         <div>
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" required="" />

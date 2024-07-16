@@ -6,7 +6,7 @@
             <div class="row no-gutters align-items-center pt-60px">
                 <div class="col-5 d-none d-sm-block">
                     <div class="hero-banner__img">
-                        <img class="img-fluid" src="img/home/hero-banner.png" alt="">
+                        <img class="img-fluid" src="view/img/home/hero-banner.png" alt="">
                     </div>
                 </div>
                 <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
@@ -26,21 +26,21 @@
     <section class="section-margin mt-0">
         <div class="owl-carousel owl-theme hero-carousel">
             <div class="hero-carousel__slide">
-                <img src="img/home/hero-slide1.png" alt="" class="img-fluid">
+                <img src="view/img/home/hero-slide1.png" alt="" class="img-fluid">
                 <a href="#" class="hero-carousel__slideOverlay">
                     <h3>Wireless Headphone</h3>
                     <p>Accessories Item</p>
                 </a>
             </div>
             <div class="hero-carousel__slide">
-                <img src="img/home/hero-slide2.png" alt="" class="img-fluid">
+                <img src="view/img/home/hero-slide2.png" alt="" class="img-fluid">
                 <a href="#" class="hero-carousel__slideOverlay">
                     <h3>Wireless Headphone</h3>
                     <p>Accessories Item</p>
                 </a>
             </div>
             <div class="hero-carousel__slide">
-                <img src="img/home/hero-slide3.png" alt="" class="img-fluid">
+                <img src="view/img/home/hero-slide3.png" alt="" class="img-fluid">
                 <a href="#" class="hero-carousel__slideOverlay">
                     <h3>Wireless Headphone</h3>
                     <p>Accessories Item</p>
@@ -61,7 +61,7 @@
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="card text-center card-product">
                         <div class="card-product__img">
-                            <img class="card-img" src="img/product/product1.png" alt="">
+                            <img class="card-img" src="view/img/product/product1.png" alt="">
                             <ul class="card-product__imgOverlay">
                                 <li><button><i class="ti-search"></i></button></li>
                                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -78,7 +78,7 @@
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="card text-center card-product">
                         <div class="card-product__img">
-                            <img class="card-img" src="img/product/product2.png" alt="">
+                            <img class="card-img" src="view/img/product/product2.png" alt="">
                             <ul class="card-product__imgOverlay">
                                 <li><button><i class="ti-search"></i></button></li>
                                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -95,7 +95,7 @@
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="card text-center card-product">
                         <div class="card-product__img">
-                            <img class="card-img" src="img/product/product3.png" alt="">
+                            <img class="card-img" src="view/img/product/product3.png" alt="">
                             <ul class="card-product__imgOverlay">
                                 <li><button><i class="ti-search"></i></button></li>
                                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -112,7 +112,7 @@
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="card text-center card-product">
                         <div class="card-product__img">
-                            <img class="card-img" src="img/product/product4.png" alt="">
+                            <img class="card-img" src="view/img/product/product4.png" alt="">
                             <ul class="card-product__imgOverlay">
                                 <li><button><i class="ti-search"></i></button></li>
                                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -129,7 +129,7 @@
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="card text-center card-product">
                         <div class="card-product__img">
-                            <img class="card-img" src="img/product/product5.png" alt="">
+                            <img class="card-img" src="view/img/product/product5.png" alt="">
                             <ul class="card-product__imgOverlay">
                                 <li><button><i class="ti-search"></i></button></li>
                                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -146,7 +146,7 @@
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="card text-center card-product">
                         <div class="card-product__img">
-                            <img class="card-img" src="img/product/product6.png" alt="">
+                            <img class="card-img" src="view/img/product/product6.png" alt="">
                             <ul class="card-product__imgOverlay">
                                 <li><button><i class="ti-search"></i></button></li>
                                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -163,7 +163,7 @@
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="card text-center card-product">
                         <div class="card-product__img">
-                            <img class="card-img" src="img/product/product7.png" alt="">
+                            <img class="card-img" src="view/img/product/product7.png" alt="">
                             <ul class="card-product__imgOverlay">
                                 <li><button><i class="ti-search"></i></button></li>
                                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -180,7 +180,7 @@
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="card text-center card-product">
                         <div class="card-product__img">
-                            <img class="card-img" src="img/product/product8.png" alt="">
+                            <img class="card-img" src="view/img/product/product8.png" alt="">
                             <ul class="card-product__imgOverlay">
                                 <li><button><i class="ti-search"></i></button></li>
                                 <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -225,133 +225,33 @@
                 <h2>Best <span class="section-intro__style">Sellers</span></h2>
             </div>
             <div class="owl-carousel owl-theme" id="bestSellerCarousel">
-                <div class="card text-center card-product">
-                    <div class="card-product__img">
-                        <img class="img-fluid" src="img/product/product1.png" alt="">
-                        <ul class="card-product__imgOverlay">
-                            <li><button><i class="ti-search"></i></button></li>
-                            <li><button><i class="ti-shopping-cart"></i></button></li>
-                            <li><button><i class="ti-heart"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <p>Accessories</p>
-                        <h4 class="card-product__title"><a href="single-product.html">Quartz Belt Watch</a></h4>
-                        <p class="card-product__price">$150.00</p>
-                    </div>
-                </div>
+                <?php
+                $sqlSelect = "SELECT * FROM product WHERE `status` = 1 LIMIT 15";
+                $resultPro = mysqli_query($conn, $sqlSelect) or die("Lỗi kết nối dữ liệu");
+                if (mysqli_num_rows($resultPro) > 0) {
+                    while ($rowPro = mysqli_fetch_assoc($resultPro)) {
 
-                <div class="card text-center card-product">
-                    <div class="card-product__img">
-                        <img class="img-fluid" src="img/product/product2.png" alt="">
-                        <ul class="card-product__imgOverlay">
-                            <li><button><i class="ti-search"></i></button></li>
-                            <li><button><i class="ti-shopping-cart"></i></button></li>
-                            <li><button><i class="ti-heart"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <p>Beauty</p>
-                        <h4 class="card-product__title"><a href="single-product.html">Women Freshwash</a></h4>
-                        <p class="card-product__price">$150.00</p>
-                    </div>
-                </div>
 
-                <div class="card text-center card-product">
-                    <div class="card-product__img">
-                        <img class="img-fluid" src="img/product/product3.png" alt="">
-                        <ul class="card-product__imgOverlay">
-                            <li><button><i class="ti-search"></i></button></li>
-                            <li><button><i class="ti-shopping-cart"></i></button></li>
-                            <li><button><i class="ti-heart"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <p>Decor</p>
-                        <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
-                        <p class="card-product__price">$150.00</p>
-                    </div>
-                </div>
+                ?>
+                        <div class="card text-center card-product">
+                            <div class="card-product__img">
+                                <img class="img-fluid" src="<?php echo $rowPro["images"]; ?>" alt="<?php echo $rowPro["pro_name"]; ?>">
+                                <ul class="card-product__imgOverlay">
+                                    <li><button><i class="ti-search"></i></button></li>
+                                    <li><button><i class="ti-shopping-cart"></i></button></li>
+                                    <li><button><i class="ti-heart"></i></button></li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-product__title"><a href="index.php?page=detail-product&id=<?php echo $rowPro["pro_id"]; ?>"><?php echo $rowPro["pro_name"]; ?></a></h4>
+                                <p class="card-product__price"><?php echo $rowPro["price"]; ?></p>
+                            </div>
+                        </div>
+                <?php
+                    }
+                }
+                ?>
 
-                <div class="card text-center card-product">
-                    <div class="card-product__img">
-                        <img class="img-fluid" src="img/product/product4.png" alt="">
-                        <ul class="card-product__imgOverlay">
-                            <li><button><i class="ti-search"></i></button></li>
-                            <li><button><i class="ti-shopping-cart"></i></button></li>
-                            <li><button><i class="ti-heart"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <p>Decor</p>
-                        <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
-                        <p class="card-product__price">$150.00</p>
-                    </div>
-                </div>
-
-                <div class="card text-center card-product">
-                    <div class="card-product__img">
-                        <img class="img-fluid" src="img/product/product1.png" alt="">
-                        <ul class="card-product__imgOverlay">
-                            <li><button><i class="ti-search"></i></button></li>
-                            <li><button><i class="ti-shopping-cart"></i></button></li>
-                            <li><button><i class="ti-heart"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <p>Accessories</p>
-                        <h4 class="card-product__title"><a href="single-product.html">Quartz Belt Watch</a></h4>
-                        <p class="card-product__price">$150.00</p>
-                    </div>
-                </div>
-
-                <div class="card text-center card-product">
-                    <div class="card-product__img">
-                        <img class="img-fluid" src="img/product/product2.png" alt="">
-                        <ul class="card-product__imgOverlay">
-                            <li><button><i class="ti-search"></i></button></li>
-                            <li><button><i class="ti-shopping-cart"></i></button></li>
-                            <li><button><i class="ti-heart"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <p>Beauty</p>
-                        <h4 class="card-product__title"><a href="single-product.html">Women Freshwash</a></h4>
-                        <p class="card-product__price">$150.00</p>
-                    </div>
-                </div>
-
-                <div class="card text-center card-product">
-                    <div class="card-product__img">
-                        <img class="img-fluid" src="img/product/product3.png" alt="">
-                        <ul class="card-product__imgOverlay">
-                            <li><button><i class="ti-search"></i></button></li>
-                            <li><button><i class="ti-shopping-cart"></i></button></li>
-                            <li><button><i class="ti-heart"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <p>Decor</p>
-                        <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
-                        <p class="card-product__price">$150.00</p>
-                    </div>
-                </div>
-
-                <div class="card text-center card-product">
-                    <div class="card-product__img">
-                        <img class="img-fluid" src="img/product/product4.png" alt="">
-                        <ul class="card-product__imgOverlay">
-                            <li><button><i class="ti-search"></i></button></li>
-                            <li><button><i class="ti-shopping-cart"></i></button></li>
-                            <li><button><i class="ti-heart"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <p>Decor</p>
-                        <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
-                        <p class="card-product__price">$150.00</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -369,7 +269,7 @@
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                     <div class="card card-blog">
                         <div class="card-blog__img">
-                            <img class="card-img rounded-0" src="img/blog/blog1.png" alt="">
+                            <img class="card-img rounded-0" src="view/img/blog/blog1.png" alt="">
                         </div>
                         <div class="card-body">
                             <ul class="card-blog__info">
@@ -386,7 +286,7 @@
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                     <div class="card card-blog">
                         <div class="card-blog__img">
-                            <img class="card-img rounded-0" src="img/blog/blog2.png" alt="">
+                            <img class="card-img rounded-0" src="view/img/blog/blog2.png" alt="">
                         </div>
                         <div class="card-body">
                             <ul class="card-blog__info">
@@ -403,7 +303,7 @@
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                     <div class="card card-blog">
                         <div class="card-blog__img">
-                            <img class="card-img rounded-0" src="img/blog/blog3.png" alt="">
+                            <img class="card-img rounded-0" src="view/img/blog/blog3.png" alt="">
                         </div>
                         <div class="card-body">
                             <ul class="card-blog__info">

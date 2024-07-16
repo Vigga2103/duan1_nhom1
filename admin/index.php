@@ -5,7 +5,7 @@ if (!$_SESSION["login"]) {
   header("location:login.php");
 }
 date_default_timezone_set('Asia/Ho_Chi_Minh') .
-  include("../modules/connection.php");
+  include("../connection.php");
 include("../common.php");
 ?>
 <!DOCTYPE html>
@@ -45,8 +45,8 @@ include("../common.php");
   <div class="container body">
     <div class="main_container">
       <?php
-      include("../modules/leftMenu.php");
-      include("../modules/topNav.php");
+      include("modules/leftMenu.php");
+      include("modules/topNav.php");
       ?>
 
       <!-- page content -->
@@ -56,7 +56,7 @@ include("../common.php");
           <?php
           if (isset($_GET["page"])) {
             $page = $_GET["page"];
-            $file = "../modules/" . $page . ".php";
+            $file = "modules/" . $page . ".php";
             include($file);
           }
           ?>
