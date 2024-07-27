@@ -87,8 +87,8 @@
                     <div class="col-md-9 col-sm-9  offset-md-3">
                         <!-- <button type="button" class="btn btn-danger">Cancel</button>
 						<button class="btn btn-warning" type="reset">Reset</button> -->
-                        <a href="index.php?page=size"><button type="button" class="btn btn-danger">Cancel</button></a>
-                        <button type="submit" class="btn btn-primary" name="addNew">Submit</button>
+                        <a href="index.php?page=size"><button type="button" class="btn btn-danger">Thoát</button></a>
+                        <button type="submit" class="btn btn-primary" name="addNew">Lưu</button>
                     </div>
                 </div>
 
@@ -148,7 +148,7 @@
                                 <td>
                                     <a href="index.php?page=size&id=<?php echo $row["size_id"] ?>&edit=1">
                                         <i class="fa fa-pencil" style="color:#0066FF"> Sửa </i></a>
-                                    <a href="index.php?page=size&id=<?php echo $row["size_id"] ?>&del=1" onclick="return confirm('Bạn có muốn xóa không?');"><i class="fa fa-trash" style="color:red"> Xóa </i></a>
+                                    <!-- <a href="index.php?page=size&id=<?php echo $row["size_id"] ?>&del=1" onclick="return confirm('Bạn có muốn xóa không?');"><i class="fa fa-trash" style="color:red"> Xóa </i></a> -->
                                 </td>
                             </tr>
                     <?php

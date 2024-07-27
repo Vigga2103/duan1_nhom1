@@ -6,91 +6,55 @@
                   <table class="table">
                       <thead>
                           <tr>
-                              <th scope="col">Product</th>
-                              <th scope="col">Price</th>
-                              <th scope="col">Quantity</th>
-                              <th scope="col">Total</th>
+                              <th scope="col">Tên</th>
+                              <th scope="col">Giá</th>
+                              <th scope="col">Số Lượng</th>
+                              <th scope="col">Tổng</th>
+                              <th scope="col">Xóa</th>
                           </tr>
                       </thead>
                       <tbody>
+                      <?php 
+                      $total = 0;
+                    //   $value["price"];
+                    //   $int_value = number_format($value["price"], 0, '', '');
+                    if(isset($_SESSION["cart"])){
+                        foreach($_SESSION["cart"] as $key=>$value){
+                 ?>
                           <tr>
                               <td>
                                   <div class="media">
                                       <div class="d-flex">
-                                          <img src="img/cart/cart1.png" alt="">
+                                          <img src="<?php echo $value["images"]; ?>" style=" height:50px; wwidth: 100px;" alt="">
                                       </div>
                                       <div class="media-body">
-                                          <p>Minimalistic shop for multipurpose use</p>
+                                          <p><?php echo $value["name"]; ?></p>
                                       </div>
                                   </div>
                               </td>
                               <td>
-                                  <h5>$360.00</h5>
+                                  <h5 class="price-prduct"><?php echo number_format($value["price"], 0, '', ','); ?></h5>
                               </td>
                               <td>
-                                  <div class="product_count">
-
-                                      <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"></button>
-                                      <input type="number" name="qty" id="sst" size="2" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-                                      <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) && sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"></button>
-                                  </div>
+                                <div class="record-product" style="width:200px;">
+                                        <span class="input-group-btn" onclick="minesCart()"> 
+                                        <button type="button" class="btn btn-primary minus" data-product="<?php echo  $value['price'] ?>" data-type="minesCart" data-field=""> - </button>
+                                        </span>
+                                        <input type="number" name="quantity" id="quantity" data-product="<?php echo  $value['price'] ?>"  maxlength="12" value="<?php echo $value["quantity"]; ?>" title="Quantity:" class="input-number" min="1" max="10"  onchange="validateQuantityCart()">
+                                        <span class="input-group-btn" onclick="plusCart()">
+                                        <button type="button" class="btn btn-primary plus" data-type="plusCart" data-field=""> + </button>
+                                        </span>
+                                    </div>
                               </td>
                               <td>
-                                  <h5>$720.00</h5>
+                                  <h5 class="total-product"><?php echo number_format($value["price"]*$value["quantity"], 0, '', ','); $total +=  $value["price"]*$value["quantity"];?></h5>
                               </td>
+                              <td><button type="button" class="btn btn-danger">Xóa</button></td>
                           </tr>
-                          <tr>
-                              <td>
-                                  <div class="media">
-                                      <div class="d-flex">
-                                          <img src="img/cart/cart2.png" alt="">
-                                      </div>
-                                      <div class="media-body">
-                                          <p>Minimalistic shop for multipurpose use</p>
-                                      </div>
-                                  </div>
-                              </td>
-                              <td>
-                                  <h5>$360.00</h5>
-                              </td>
-                              <td>
-                                  <div class="product_count">
-
-                                      <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"></button>
-                                      <input type="number" name="qty" id="sst" size="2" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-                                      <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) && sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"></button>
-                                  </div>
-                              </td>
-                              <td>
-                                  <h5>$720.00</h5>
-                              </td>
-                          </tr>
-                          <tr>
-                              <td>
-                                  <div class="media">
-                                      <div class="d-flex">
-                                          <img src="img/cart/cart3.png" alt="">
-                                      </div>
-                                      <div class="media-body">
-                                          <p>Minimalistic shop for multipurpose use</p>
-                                      </div>
-                                  </div>
-                              </td>
-                              <td>
-                                  <h5>$360.00</h5>
-                              </td>
-                              <td>
-                                  <div class="product_count">
-
-                                      <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"></button>
-                                      <input type="number" name="qty" id="sst" size="2" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-                                      <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) && sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"></button>
-                                  </div>
-                              </td>
-                              <td>
-                                  <h5>$720.00</h5>
-                              </td>
-                          </tr>
+                 <?php 
+                       }
+                    }
+                 ?>
                           <tr class="bottom_button">
                               <td>
                                   <a class="button" href="#">Update Cart</a>
@@ -120,7 +84,7 @@
                                   <h5>Subtotal</h5>
                               </td>
                               <td>
-                                  <h5>$2160.00</h5>
+                                  <h5><span class="total-cart" data-total-cart="<?php echo $total; ?>"><?php echo number_format($total, 0, '', ',');?></span></h5>
                               </td>
                           </tr>
                           <tr class="shipping_area">

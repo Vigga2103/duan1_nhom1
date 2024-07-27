@@ -35,101 +35,74 @@
       <div class="menu_section">
         <h3>General</h3>
         <ul class="nav side-menu">
-          <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-briefcase"></i> Quản lí danh mục <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="index.php?page=category">Quản lí danh mục</a></li>
-              <li><a href="index.php?page=listProduct">Quản lí sản phẩm</a></li>
-              <li><a href="index.php?page=color">Quản lí màu sắc</a></li>
-              <li><a href="index.php?page=size">Quản lí kích cỡ</a></li>
-              <li><a href="index.php?page=factory">Quản lí thương hiệu</a></li>
-              <li><a href="index3.html">Quản lí người dùng</a></li>
+              <li><a href="index.php?page=category">Danh mục</a></li>
             </ul>
           </li>
-          <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-archive"></i> Quản lí sản phẩm <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="index.php?page=category">Quản lí danh mục</a></li>
               <li><a href="index.php?page=addProduct">Thêm mới sản phẩm</a></li>
               <li><a href="index.php?page=listProduct">Danh sách sản phẩm</a></li>
-              <li><a href="form_upload.html">Form Upload</a></li>
-              <li><a href="form_buttons.html">Form Buttons</a></li>
+              <li><a href="index.php?page=updateProduct">Danh sách sản phẩm</a></li>
             </ul>
           </li>
-          <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-tachometer"></i> Quản lí màu sắc <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="general_elements.html">General Elements</a></li>
-              <li><a href="media_gallery.html">Media Gallery</a></li>
-              <li><a href="typography.html">Typography</a></li>
-              <li><a href="icons.html">Icons</a></li>
-              <li><a href="glyphicons.html">Glyphicons</a></li>
-              <li><a href="widgets.html">Widgets</a></li>
-              <li><a href="invoice.html">Invoice</a></li>
-              <li><a href="inbox.html">Inbox</a></li>
-              <li><a href="calendar.html">Calendar</a></li>
+              >
+              <li><a href="index.php?page=color">Màu sắc</a></li>
+              
             </ul>
           </li>
-          <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-arrows-v"></i> Quản lí kích cỡ <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="tables.html">Tables</a></li>
-              <li><a href="tables_dynamic.html">Table Dynamic</a></li>
+              <li><a href="index.php?page=category">Kích cỡ</a></li>
+              
+              <li><a href="index.php?page=size">Quản lí kích cỡ</a></li>
+              
             </ul>
           </li>
-          <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-child"></i> Quản lí thương hiệu  <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="chartjs.html">Chart JS</a></li>
-              <li><a href="chartjs2.html">Chart JS2</a></li>
-              <li><a href="morisjs.html">Moris JS</a></li>
-              <li><a href="echarts.html">ECharts</a></li>
-              <li><a href="other_charts.html">Other Charts</a></li>
+              
+              <li><a href="index.php?page=factory">Thương hiệu</a></li>
+
             </ul>
           </li>
-          <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">
-              <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-              <li><a href="fixed_footer.html">Fixed Footer</a></li>
-            </ul>
-          </li>
+
         </ul>
       </div>
       <div class="menu_section">
         <h3>Live On</h3>
         <ul class="nav side-menu">
-          <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-calendar"></i> Quản lí đơn hàng <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="e_commerce.html">E-commerce</a></li>
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="project_detail.html">Project Detail</a></li>
-              <li><a href="contacts.html">Contacts</a></li>
-              <li><a href="profile.html">Profile</a></li>
+             
+              <li><a href="project_detail.html">Danh sách đơn hàng</a></li>
+             
             </ul>
           </li>
-          <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-users"></i> Quản lí người dùng  <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="page_403.html">403 Error</a></li>
-              <li><a href="page_404.html">404 Error</a></li>
-              <li><a href="page_500.html">500 Error</a></li>
-              <li><a href="plain_page.html">Plain Page</a></li>
-              <li><a href="login.html">Login Page</a></li>
-              <li><a href="pricing_tables.html">Pricing Tables</a></li>
+              
+              <li><a href="index.php?page=user">Danh sách người dùng</a></li>
+
             </ul>
           </li>
-          <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-pie-chart"></i> Thống kê  <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="#level1_1">Level One</a>
-              <li><a>Level One<span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                  <li class="sub_menu"><a href="level2.html">Level Two</a>
-                  </li>
-                  <li><a href="#level2_1">Level Two</a>
-                  </li>
-                  <li><a href="#level2_2">Level Two</a>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="#level1_2">Level One</a>
-              </li>
+              
+              <li><a href="index.php?page=user">Danh sách bán hàng</a></li>
+
             </ul>
           </li>
-          <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
+          <li><a><i class="fa fa-comment"></i> Quản lí bình luận  <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+              
+              <li><a href="index.php?page=user">Danh sách bình luận</a></li>
+
+            </ul>
+          </li>
         </ul>
       </div>
 

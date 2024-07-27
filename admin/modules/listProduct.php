@@ -7,17 +7,17 @@
             <thead>
                 <tr class="headings">
                     <th class="column-title">Id</th>
-                    <th class="column-title">Name </th>
-                    <th class="column-title">Category</th>
-                    <th class="column-title">Size</th>
-                    <th class="column-title">Factory </th>
-                    <th class="column-title">Color</th>
-                    <th class="column-title">Images</th>
-                    <th class="column-title">Price</th>
-                    <th class="column-title">Description</th>
-                    <th class="column-title">Status</th>
-                    <th class="column-title">Date create</th>
-                    <th class="column-title no-link last"><span class="nobr">Action</span>
+                    <th class="column-title">Tên </th>
+                    <th class="column-title">Danh mục</th>
+                    <!-- <th class="column-title">Kích cỡ</th>
+                    <th class="column-title">Thương hiệu </th>
+                    <th class="column-title">Màu</th> -->
+                    <th class="column-title">Ảnh</th>
+                    <th class="column-title">Giá</th>
+                    <!-- <th class="column-title">Mô tả</th> -->
+                    <th class="column-title">Trạng thái</th>
+                    <th class="column-title">Ngày tạo</th>
+                    <th class="column-title no-link last"><span class="nobr">Thao tác</span>
                     </th>
                 </tr>
             </thead>
@@ -60,12 +60,12 @@
                             <td scope="row"><?php echo $i; ?></td>
                             <td><?php echo $row["pro_name"]; ?></td>
                             <td><?php echo $rowCategory[1]; ?></td>
-                            <td><?php echo $rowSize[1]; ?></td>
+                            <!-- <td><?php echo $rowSize[1]; ?></td>
                             <td><?php echo $rowFactory[1]; ?></td>
-                            <td><?php echo $rowColor[1]; ?></td>
+                            <td><?php echo $rowColor[1]; ?></td> -->
                             <td><img style="width:40px; height:40px" src="../<?php echo $row["images"]; ?>" alt=""></td>
                             <td><?php echo $row["price"]; ?></td>
-                            <td><?php echo $row["description"]; ?></td>
+                            <!-- <td><?php echo $row["description"]; ?></td> -->
                             <td>
                                 <label>
                                     <?php echo ($row["status"] ? "Hiển thị" : "Ẩn") ?>
@@ -75,8 +75,8 @@
                             <td>
                                 <a href="index.php?page=updateProduct&id=<?php echo $row["pro_id"] ?>&edit=1">
                                     <i class="fa fa-pencil" style="color:#FF8C00"> Sửa </i></a>
-                                <a href="index.php?page=listProduct&id=<?php echo $row["pro_id"] ?>&del=1" onclick=" return confirm('Bạn có muốn xóa không?');">
-                                    <i class="fa fa-trash" style="color:red"> Xóa </i></a>
+                                <!-- <a href="index.php?page=listProduct&id=<?php echo $row["pro_id"] ?>&del=1" onclick=" return confirm('Bạn có muốn xóa không?');">
+                                    <i class="fa fa-trash" style="color:red"> Xóa </i></a> -->
                             </td>
                         </tr>
                 <?php

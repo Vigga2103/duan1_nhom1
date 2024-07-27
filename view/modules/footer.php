@@ -101,6 +101,8 @@
 <script src="view/vendors/jquery.ajaxchimp.min.js"></script>
 <script src="view/vendors/mail-script.js"></script>
 <script src="view/js/main.js"></script>
+<script src="view/js/count.js"></script>
+<script src="view/js/cart.js"></script>
 </body>
 
 </html>

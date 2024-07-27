@@ -1,4 +1,6 @@
 <?php
+ob_start();
+session_start();
 include "view/modules/header.php";
 if (isset($_GET["page"]) && ($_GET["page"] != "")) {
     $page = $_GET["page"];
@@ -21,6 +23,9 @@ if (isset($_GET["page"]) && ($_GET["page"] != "")) {
         case 'detail-product':
             include "view/modules/detail-product.php";
             break;
+            case 'cart':
+                include "view/modules/cart.php";
+                break;
         case 'payment':
             include "view/modules/payment.php";
             break;

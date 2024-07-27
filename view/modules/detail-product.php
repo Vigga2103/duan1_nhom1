@@ -2,44 +2,107 @@
  <div class="product_image_area">
      <div class="container">
          <div class="row s_product_inner">
+            <?php 
+            if(isset($_GET["id"])){
+                $pro_id = $_GET["id"];
+                $sqlDetailProCate = "SELECT * FROM product INNER JOIN category ON product.cat_id=category.cat_id WHERE product.pro_id = $pro_id";
+                $resultDetailProCate = mysqli_query($conn, $sqlDetailProCate);
+                $rowDetailProCate = mysqli_fetch_row($resultDetailProCate);
+
+                $sqlDetailPro = "SELECT * FROM product INNER JOIN size ON product.size_id=size.size_id WHERE product.pro_id = $pro_id";
+                $resultDetailPro = mysqli_query($conn, $sqlDetailPro);
+                $rowDetailPro = mysqli_fetch_row($resultDetailPro);
+
+                $sqlDetailProColor = "SELECT * FROM product INNER JOIN color ON product.col_id=color.col_id WHERE product.pro_id = $pro_id";
+                $resultDetailProColor = mysqli_query($conn, $sqlDetailProColor);
+                $rowDetailProColor = mysqli_fetch_row($resultDetailProColor);
+                
+                $sqlDetailProFac = "SELECT * FROM product INNER JOIN factory ON product.fac_id=factory.fac_id WHERE product.pro_id = $pro_id";
+                $resultDetailProFac = mysqli_query($conn, $sqlDetailProFac);
+                $rowDetailProFac = mysqli_fetch_row($resultDetailProFac);
+                // echo "pre";
+                // print_r($rowDetailPro);
+            ?>
              <div class="col-lg-6">
                  <div class="owl-carousel owl-theme s_Product_carousel">
                      <div class="single-prd-item">
-                         <img class="img-fluid" src="img/category/s-p1.jpg" alt="">
+                         <img class="img-fluid" src="<?php echo $rowDetailPro[5]; ?>" alt="">
                      </div>
-                     <!-- <div class="single-prd-item">
-							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-						</div>
-						<div class="single-prd-item">
-							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-						</div> -->
                  </div>
              </div>
              <div class="col-lg-5 offset-lg-1">
                  <div class="s_product_text">
-                     <h3>Faded SkyBlu Denim Jeans</h3>
-                     <h2>$149.99</h2>
+                     <h3><?php echo $rowDetailPro[1];?></h3>
+                     <h2><?php echo $rowDetailPro[6];?></h2>
                      <ul class="list">
-                         <li><a class="active" href="#"><span>Category</span> : Household</a></li>
-                         <li><a href="#"><span>Availibility</span> : In Stock</a></li>
+                         <li><a class="active" href="#"><span>Category</span> : <?php echo $rowDetailProCate[12];?></a></li>
+                         <li><a href="#"><span>Factory</span> : <?php echo $rowDetailProFac[12];?></a></li>
                      </ul>
-                     <p>Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for
-                         something that can make your interior look awesome, and at the same time give you the pleasant warm feeling
-                         during the winter.</p>
-                     <div class="product_count">
-                         <label for="qty">Quantity:</label>
-                         <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"></button>
-                         <input type="number" name="qty" id="sst" size="2" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-                         <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) && sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"></button>
-                         <a class="button primary-btn" href="#">Add to Cart</a>
-                     </div>
-                     <div class="card_area d-flex align-items-center">
-                         <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
-                         <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
+                     <!-- <div class="size-wrap">
+                        <div class="">
+                            <h4>Size</h4>
+                            <select>
+                            <?php
+                            $sql = "SELECT * FROM size WHERE status = 1";
+                            $result = mysqli_query($conn, $sql) or die("Lỗi truy vấn lấy dữ liệu");
+
+                            $sqlSize = "SELECT * FROM size WHERE size_id=" . $rowDetailPro[3];
+                            $resultSize = mysqli_query($conn, $sqlSize);
+                            $rowSize = mysqli_fetch_row($resultSize);
+                            ?>
+                            <div class="col-md-6 col-sm-6  form-group has-feedback">
+                                <select class="form-control" id="size_id" name="size_id">
+                                    <option value="<?php echo $size_id ?>"><?php echo $rowSize[1]; ?></option>
+                                    <?php
+                                    if (mysqli_num_rows($result) > 0) {
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                    ?>
+                                            <option value="<?php echo $row["size_id"] ?>"><?php echo $row["size_name"] ?></option>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </select>
+
+                            </div>
+                        </div>
+                     </div> -->
+                     <div class="product__details__option">
+                            <div class="product__details__option__size">
+                                <span>Size:</span>
+                                <button type="button" class="btn btn-dark"><?php echo $rowDetailPro[12]?></button>
+                               
+                            </div>
+                            <br>
+                            <div class="product__details__option__color">
+                                <span>Color:</span>
+                                <button type="button" class="btn btn-secondary"><?php echo $rowDetailProColor[12]?></button>
+                            </div>
+                        </div>
+                     <p><?php echo $rowDetailPro[7];?></p>
+                     <div class="">
+                        <label for="quantity">Quantity:</label>
+                        <span class="input-group-btn" onclick="minus()"> 
+                        <button type="button" class="btn btn-primary" data-type="minus" data-field=""> - </button>
+                        </span>
+                        <input type="number" name="quantity" id="quantity"  maxlength="12" value="1" title="Quantity:" class="input-number" min="1" max="12"  onchange="validateQuantity()">
+                        <span class="input-group-btn" onclick="plus()">
+                        <button type="button" class="btn btn-primary" data-type="plus" data-field=""> + </button>
+                        </span>
+                    </div>
+                    
+                    <div >
+                    <p class="addtocart">
+                            <a class="button primary-btn btn-addtocart" href="index.php?page=cart" onclick="addCart(<?php echo $rowDetailPro[0];?>)">Add to Cart</a>
+                    </p>
                      </div>
                  </div>
              </div>
+             <?php
+            }
+            ?>
          </div>
+
      </div>
  </div>
  <!--================End Single Product Area =================-->
@@ -466,3 +529,4 @@
          </div>
      </div>
  </section>
+ 

@@ -85,8 +85,8 @@
 				<div class="ln_solid"></div>
 				<div class="form-group row">
 					<div class="col-md-9 col-sm-9  offset-md-3">
-						<!-- <button type="button" class="btn btn-danger">Cancel</button>
-						<button class="btn btn-warning" type="reset">Reset</button> -->
+					    <a href="index.php?page=category"><button type="button" class="btn btn-danger">Cancel</button></a>
+						<!-- <button class="btn btn-warning" type="reset">Reset</button> -->
 						<button type="submit" class="btn btn-primary" name="addNew">Submit</button>
 					</div>
 				</div>
@@ -144,8 +144,8 @@
 								<td><?php echo date("d-m-Y H:i:s", strtotime($row["date_create"])) ?></td>
 								<td>
 									<a href="index.php?page=category&id=<?php echo $row["cat_id"] ?>&edit=1">
-										<i class="fa fa-pencil" style="color:#0066FF"> Sửa </i></a>
-									<a href="index.php?page=category&id=<?php echo $row["cat_id"] ?>&del=1" onclick="return confirm('Bạn có muốn xóa không?');"><i class="fa fa-trash" style="color:red"> Xóa </i></a>
+										<i class="fa fa-pencil" style="color:#0066FF"> Edit </i></a>
+									<!-- <a href="index.php?page=category&id=<?php echo $row["cat_id"] ?>&del=1" onclick="return confirm('Bạn có muốn xóa không?');"><i class="fa fa-trash" style="color:red"> Xóa </i></a> -->
 								</td>
 							</tr>
 					<?php

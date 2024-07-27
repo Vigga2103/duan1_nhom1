@@ -13,50 +13,59 @@
 
 
                         ?>
-                                <li class="filter-list"><a href="index.php?page=product&id=<?php echo $rowCat["cat_id"]; ?>">
-                                        <input class="pixel-radio" type="radio" id="men" name="brand"><label for="men"><?php echo $rowCat["cat_name"]; ?></label></a></li>
+                                <li class="filter-list"><a href="index.php?page=shop&type=cat&id=<?php echo $rowCat["cat_id"]; ?>">
+                                        <input class="pixel-radio" type="radio"><label for="men"><?php echo $rowCat["cat_name"]; ?></label></a></li>
                         <?php
                             }
                         }
                         ?>
-                        <!-- <li class="filter-list"><input class="pixel-radio" type="radio" id="women" name="brand"><label for="women">Women<span> (3600)</span></label></li>
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="accessories" name="brand"><label for="accessories">Accessories<span> (3600)</span></label></li>
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="footwear" name="brand"><label for="footwear">Footwear<span> (3600)</span></label></li>
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="bayItem" name="brand"><label for="bayItem">Bay item<span> (3600)</span></label></li>
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="electronics" name="brand"><label for="electronics">Electronics<span> (3600)</span></label></li>
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="food" name="brand"><label for="food">Food<span> (3600)</span></label></li> -->
-                    </ul>
                 </form>
             </li>
         </ul>
     </div>
     <div class="sidebar-filter">
-        <div class="top-filter-head">Product Filters</div>
+        <div class="top-filter-head">Factory</div>
         <div class="common-filter">
-            <div class="head">Brands</div>
-            <form action="#">
-                <ul>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">Apple<span>(29)</span></label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="asus" name="brand"><label for="asus">Asus<span>(29)</span></label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="gionee" name="brand"><label for="gionee">Gionee<span>(19)</span></label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="micromax" name="brand"><label for="micromax">Micromax<span>(19)</span></label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="samsung" name="brand"><label for="samsung">Samsung<span>(19)</span></label></li>
-                </ul>
-            </form>
-        </div>
+
+                <form action="#">
+                     <ul>
+                            <?php
+                                $sqlSelectFac = "SELECT * FROM factory WHERE `status` = 1";
+                                $resultFac = mysqli_query($conn, $sqlSelectFac) or die("Lỗi kết nối dữ liệu");
+                                if (mysqli_num_rows($resultFac) > 0) {
+                                    while ($rowFac = mysqli_fetch_assoc($resultFac)) {
+
+
+                                ?>
+                                        <li class="filter-list"><a href="index.php?page=shop&type=fac&id=<?php echo $rowFac["fac_id"]; ?>">
+                                                <input class="pixel-radio" type="radio"><label for="men"><?php echo $rowFac["fac_name"]; ?></label></a></li>
+                                <?php
+                                    }
+                                }
+                            ?>
+                     </ul>
+                </form>
+            </div>
         <div class="common-filter">
             <div class="head">Color</div>
             <form action="#">
-                <ul>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">Black<span>(29)</span></label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="balckleather" name="color"><label for="balckleather">Black
-                            Leather<span>(29)</span></label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="blackred" name="color"><label for="blackred">Black
-                            with red<span>(19)</span></label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="gold" name="color"><label for="gold">Gold<span>(19)</span></label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="spacegrey" name="color"><label for="spacegrey">Spacegrey<span>(19)</span></label></li>
-                </ul>
-            </form>
+                     <ul>
+                            <?php
+                                $sqlSelectCol = "SELECT * FROM color WHERE `status` = 1";
+                                $resultCol = mysqli_query($conn, $sqlSelectCol) or die("Lỗi kết nối dữ liệu");
+                                if (mysqli_num_rows($resultCol) > 0) {
+                                    while ($rowCol = mysqli_fetch_assoc($resultCol)) {
+
+
+                                ?>
+                                        <li class="filter-list"><a href="index.php?page=shop&type=col&id=<?php echo $rowCol["col_id"]; ?>">
+                                                <input class="pixel-radio" type="radio"><label for="men"><?php echo $rowCol["col_name"]; ?></label></a></li>
+                                <?php
+                                    }
+                                }
+                            ?>
+                     </ul>
+                </form>
         </div>
         <div class="common-filter">
             <div class="head">Price</div>
