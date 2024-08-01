@@ -1,150 +1,217 @@
 <section class="checkout_area section-margin--small">
     <div class="container">
-        <div class="returning_customer">
-            <div class="check_title">
-                <h2>Returning Customer? <a href="#">Click here to login</a></h2>
-            </div>
-            <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new
-                customer, please proceed to the Billing &amp; Shipping section.</p>
-            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
-                <div class="col-md-6 form-group p_star">
-                    <input type="text" class="form-control" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" id="name" name="name">
-                    <!-- <span class="placeholder" data-placeholder="Username or Email"></span> -->
-                </div>
-                <div class="col-md-6 form-group p_star">
-                    <input type="password" class="form-control" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" id="password" name="password">
-                    <!-- <span class="placeholder" data-placeholder="Password"></span> -->
-                </div>
-                <div class="col-md-12 form-group">
-                    <button type="submit" value="submit" class="button button-login">login</button>
-                    <div class="creat_account">
-                        <input type="checkbox" id="f-option" name="selector">
-                        <label for="f-option">Remember me</label>
-                    </div>
-                    <a class="lost_pass" href="#">Lost your password?</a>
-                </div>
-            </form>
-        </div>
+   
         <div class="cupon_area">
             <div class="check_title">
-                <h2>Have a coupon? <a href="#">Click here to enter your code</a></h2>
+                <h2>Có phiếu giảm giá? <a href="#">Nhập mã của bạn.</a></h2>
             </div>
             <input type="text" placeholder="Enter coupon code">
-            <a class="button button-coupon" href="#">Apply Coupon</a>
+            <a class="button button-coupon" href="#">Áp dụng mã giảm giá</a>
+        </div>
+        <div class="cupon_area">
+            
         </div>
         <div class="billing_details">
             <div class="row">
-                <div class="col-lg-8">
-                    <h3>Billing Details</h3>
-                    <form class="row contact_form" action="#" method="post" novalidate="novalidate">
-                        <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="first" name="name">
+            <form class="row contact_form" action="#" method="post">
+                <div class="col-lg-6">
+                    <h3>Chi tiết thanh toán</h3>
+                    <?php 
+                        if(isset($_POST["addNew"])){
+                        // $data = $_POST;
+                        $dateTime = date("Y-m-d H:i:s");
+                        // $data["ctm_id"] = isset($_SESSION["login"])?$_SESSION["login"]:0;
+                        // $data["status"] = 1;
+                        // $data["date_create"] = $dateTime;
+                        // $data["payment"] = $_POST["payment"][0]; //Khi chuyển sang dâta này nó chỉ đơn thuần là mảng một chiều còn k gán ngc lại nó là mảng hai chiều.
+                        // echo "<pre>";
+                        // print_r($data);
+                        $ctm_id = isset($_SESSION["loginCustomer"]["ctm_id"])?$_SESSION["loginCustomer"]["ctm_id"]:0;
+                        $firt_name = $_POST["firt_name"];
+                        $last_name = $_POST["last_name"];
+                        $phone = $_POST["phone"];
+                        $email = $_POST["email"];
+                        $address = $_POST["address"];
+                        $description = $_POST["description"];
+                        $status = 0;
+                        $subtotal = 0;
+                        $odertotal = 0;
+                        $ship = 0;
+                        if(isset($_SESSION["cart"])){
+                            foreach($_SESSION["cart"] as $key=>$value){
+                                $subtotal += $value["price"]*$value["quantity"];
+                                $odertotal = $ship + $subtotal;
+                            }
+                        }
+                        // var_dump($odertotal);
+                        // die;
+                        $date_create = $dateTime;   
+                        $payment_id = $_POST["payment"][0];
+
+                        $sqlInsertOder = "INSERT INTO oder (ctm_id,firt_name,last_name,phone,email,`address`,`description`,date_create,payment_id,`status`,odertotal)";
+                        $sqlInsertOder .= "VALUES('$ctm_id','$firt_name','$last_name','$phone','$email','$address','$description','$date_create','$payment_id','$status','$odertotal')";
+                        // echo $sqlInsertOder;
+                        mysqli_query($conn, $sqlInsertOder) or die("Lỗi câu lệnh thêm mới");
+                        $last_id = mysqli_insert_id($conn);//Lấy ra id vừa insert.
+                        if(isset($_SESSION["cart"])){
+                            foreach($_SESSION["cart"]as $key=>$value){//Khi mà thêm một bản ghi thì bên kia sẽ đc n cảu cả bản ghi
+                                $price = $value["price"];
+                                $quantity = $value["quantity"];
+                                $sqlInsertOderDetail = "INSERT INTO oder_detail (oder_id,pro_id,price,quantity,`status`,date_create)";
+                                $sqlInsertOderDetail .= "VALUES('$last_id','$key','$price','$quantity','$status','$dateTime')";
+                                mysqli_query($conn, $sqlInsertOderDetail) or die("Lỗi câu lệnh thêm mới");
+                            }
+                            unset($_SESSION["cart"]);
+                        }
+                        //Sau khi lưu vào rồi thì sẽ xóa sesstion
+                        }
+                    ?>   
+                    <?php 
+                        if(isset($_SESSION["loginCustomer"]["ctm_id"])){
+                            ?>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" id="firt_name" name="firt_name" placeholder="First Name"
+                                    <?php if(isset($_SESSION["loginCustomer"]["ctm_id"])) { ?>
+                                        value="<?php echo $_SESSION["loginCustomer"]["first_name"]; ?>"
+                                    <?php } ?>
+                                >
+                                <span class="placeholder" data-placeholder="First name"></span>
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name"
+                                    <?php if(isset($_SESSION["loginCustomer"]["ctm_id"])) { ?>
+                                        value="<?php echo $_SESSION["loginCustomer"]["last_name"]; ?>"
+                                    <?php } ?>
+                                >
+                                <span class="placeholder" data-placeholder="Last name"></span>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number"
+                                    <?php if(isset($_SESSION["loginCustomer"]["ctm_id"])) { ?>
+                                        value="<?php echo $_SESSION["loginCustomer"]["phone"]; ?>"
+                                    <?php } ?>
+                                >
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Email"
+                                    <?php if(isset($_SESSION["loginCustomer"]["ctm_id"])) { ?>
+                                        value="<?php echo $_SESSION["loginCustomer"]["email"]; ?>"
+                                    <?php } ?>
+                                >
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" id="address" name="address" placeholder="Address"
+                                    <?php if(isset($_SESSION["loginCustomer"]["ctm_id"])) { ?>
+                                        value="<?php echo $_SESSION["loginCustomer"]["address"]; ?>"
+                                    <?php } ?>
+                                >
+                                <span class="placeholder"></span>
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" id="description" name="description" placeholder="Description"
+                                    <?php if(isset($_SESSION["loginCustomer"]["ctm_id"])) { ?>
+                                        value="<?php echo $_SESSION["loginCustomer"]["description"]; ?>"
+                                    <?php } ?>
+                                >
+                                <span class="placeholder"></span>
+                            </div>
+                    <?php
+                        } else{
+                    
+                    ?>
+                    <div class="col-md-12 form-group p_star">
+                            <input type="text" class="form-control" id="firt_name" name="firt_name" placeholder="Firt Name">
                             <span class="placeholder" data-placeholder="First name"></span>
                         </div>
-                        <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="last" name="name">
+                        <div class="col-md-12 form-group p_star">
+                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
                             <span class="placeholder" data-placeholder="Last name"></span>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="company" name="company" placeholder="Company name">
-                        </div>
-                        <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="number" name="number">
-                            <span class="placeholder" data-placeholder="Phone number"></span>
-                        </div>
-                        <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="email" name="compemailany">
-                            <span class="placeholder" data-placeholder="Email Address"></span>
-                        </div>
-                        <div class="col-md-12 form-group p_star">
-                            <select class="country_select" style="display: none;">
-                                <option value="1">Country</option>
-                                <option value="2">Country</option>
-                                <option value="4">Country</option>
-                            </select><div class="nice-select country_select" tabindex="0"><span class="current">Country</span><ul class="list"><li data-value="1" class="option selected">Country</li><li data-value="2" class="option">Country</li><li data-value="4" class="option">Country</li></ul></div>
-                        </div>
-                        <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="add1" name="add1">
-                            <span class="placeholder" data-placeholder="Address line 01"></span>
-                        </div>
-                        <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="add2" name="add2">
-                            <span class="placeholder" data-placeholder="Address line 02"></span>
-                        </div>
-                        <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="city" name="city">
-                            <span class="placeholder" data-placeholder="Town/City"></span>
-                        </div>
-                        <div class="col-md-12 form-group p_star">
-                            <select class="country_select" style="display: none;">
-                                <option value="1">District</option>
-                                <option value="2">District</option>
-                                <option value="4">District</option>
-                            </select><div class="nice-select country_select" tabindex="0"><span class="current">District</span><ul class="list"><li data-value="1" class="option selected">District</li><li data-value="2" class="option">District</li><li data-value="4" class="option">District</li></ul></div>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Số điện thoại">
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP">
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                        </div>                    
+                        <div class="col-md-12 form-group p_star">
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Nhập địa chỉ">
+                            <span class="placeholder"></span>
                         </div>
-                        <div class="col-md-12 form-group">
-                            <div class="creat_account">
-                                <input type="checkbox" id="f-option2" name="selector">
-                                <label for="f-option2">Create an account?</label>
-                            </div>
+                        <div class="col-md-12 form-group p_star">
+                            <input type="text" class="form-control" id="description" name="description" placeholder="Mô tả">
+                            <span class="placeholder"></span>
                         </div>
-                        <div class="col-md-12 form-group mb-0">
-                            <div class="creat_account">
-                                <h3>Shipping Details</h3>
-                                <input type="checkbox" id="f-option3" name="selector">
-                                <label for="f-option3">Ship to a different address?</label>
-                            </div>
-                            <textarea class="form-control" name="message" id="message" rows="1" placeholder="Order Notes"></textarea>
-                        </div>
-                    </form>
+
+                    <?php 
+                        }
+                    ?>
+                    
+                       
                 </div>
-                <div class="col-lg-4">
-                    <div class="order_box">
-                        <h2>Your Order</h2>
-                        <ul class="list">
-                            <li><a href="#"><h4>Product <span>Total</span></h4></a></li>
-                            <li><a href="#">Fresh Blackberry <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
-                            <li><a href="#">Fresh Tomatoes <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
-                            <li><a href="#">Fresh Brocoli <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
-                        </ul>
-                        <ul class="list list_2">
-                            <li><a href="#">Subtotal <span>$2160.00</span></a></li>
-                            <li><a href="#">Shipping <span>Flat rate: $50.00</span></a></li>
-                            <li><a href="#">Total <span>$2210.00</span></a></li>
-                        </ul>
-                        <div class="payment_item">
-                            <div class="radion_btn">
-                                <input type="radio" id="f-option5" name="selector">
-                                <label for="f-option5">Check payments</label>
+                
+                <div class="col-lg-6">
+                        <div class="order_box" style="width:500px;">
+                                    <h2>Your Order</h2>
+                                    <ul class="list">
+                                        <li><a href="#"><h4>Tên <span class="middle" style="width:150px;">Số lượng</span> <span class="last">Giá</span></h4></a></li>
+                                    <?php       
+                                        $subtotal = 0;
+                                        $odertotal = 0;
+                                        $ship = 0;
+                                        if(isset($_SESSION["cart"])){
+                                            foreach($_SESSION["cart"] as $key=>$value){
+                                                $subtotal += $value["price"]*$value["quantity"];
+                                                $odertotal = $ship + $subtotal;
+                                    ?>
+                                        <li><a href="#"><b><?php echo  $value['name'] ?></b> <span class="middle">x<?php echo  $value["quantity"];?></span> 
+                                        <span class="last"><?php echo number_format($value["price"]*$value["quantity"], 0, '', ',');?></span></a></li>
+                                        <br>
+                                
+                                    <?php
+                                             }
+                                         }
+                                    ?>     
+                            </ul>
+                                    <ul class="list list_2">
+                                        <li><a href="#">Tổng tiền hàng <span><?php echo number_format($subtotal, 0, '', ','); ?></span></a></li>
+                                        <li><a href="#">Vận chuyển <span>Miễn phí ship: 0</span></a></li>
+                                        <li><a href="#">Tổng <span ><?php echo number_format($odertotal, 0, '', ','); ?></span></a></li>
+                                    </ul>
+                                    <br>
+                                    
+                                    <!-- <div class="creat_account">
+                                        <input type="checkbox" id="f-option4" name="selector">
+                                        <label for="f-option4">Tôi đã đọc kỹ và chấp nhận điều khoản.</label>
+                                        <a href="#">terms &amp; conditions*</a>
+                                    </div> -->
+                       
+                        </div>
+                        <h3>Chọn phương thức thanh toán</h2>
+                        <?php 
+                            $sqlPayment = "SELECT * FROM payment WHERE status = 1";
+                            $resultPayment = mysqli_query($conn, $sqlPayment) or die("Lỗi kết nối dữ liệu");
+                            if (mysqli_num_rows($resultPayment) > 0) {
+                                while ($rowPayment = mysqli_fetch_assoc($resultPayment)) {
+                        ?>
+                        <div class="col-md-12 form-group p_star">
+                            <div class="radio">
+                                <label><input type="radio" name="payment[]" id="payment[]" value="<?php echo $rowPayment["payment_id"]?>" style="margin-left: 20px;">
+                                <?php echo $rowPayment["payment_name"]?></label>
                                 <div class="check"></div>
                             </div>
-                            <p>Please send a check to Store Name, Store Street, Store Town, Store State / County,
-                                Store Postcode.</p>
                         </div>
-                        <div class="payment_item active">
-                            <div class="radion_btn">
-                                <input type="radio" id="f-option6" name="selector">
-                                <label for="f-option6">Paypal </label>
-                                <img src="img/product/card.jpg" alt="">
-                                <div class="check"></div>
-                            </div>
-                            <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal
-                                account.</p>
-                        </div>
-                        <div class="creat_account">
-                            <input type="checkbox" id="f-option4" name="selector">
-                            <label for="f-option4">I’ve read and accept the </label>
-                            <a href="#">terms &amp; conditions*</a>
-                        </div>
+                        <?php 
+                        
+                    }
+                }
+                        ?>
                         <div class="text-center">
-                          <a class="button button-paypal" href="#">Proceed to Paypal</a>
+                          <button class="button button-paypal" type="submit" onclick="return confirm('Đơn hàng của bạn đang được xác nhận vui lòng đợi xác nhận');" name="addNew">Tiếp tục</button>
                         </div>
                     </div>
+                    
                 </div>
-            </div>
+            </form>
         </div>
     </div>
   </section>

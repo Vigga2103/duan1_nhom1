@@ -1,37 +1,17 @@
 <?php
 ob_start();
 session_start();
+include("connection.php");
+include("common.php");
 include "view/modules/header.php";
+// if(isset($_SESSION["loginCustomer"])){
+//     header("location:index.php");
+// }
 if (isset($_GET["page"]) && ($_GET["page"] != "")) {
-    $page = $_GET["page"];
-    switch ($page) {
-        case 'shop':
-            include "view/modules/shop.php";
-            break;
-        case 'blog':
-            include "view/modules/blog.php";
-            break;
-        case 'contact':
-            include "view/modules/contact.php";
-            break;
-        case 'login':
-            include "view/modules/login.php";
-            break;
-        case 'register':
-            include "view/modules/register.php";
-            break;
-        case 'detail-product':
-            include "view/modules/detail-product.php";
-            break;
-            case 'cart':
-                include "view/modules/cart.php";
-                break;
-        case 'payment':
-            include "view/modules/payment.php";
-            break;
-        default:
-            include "view/modules/home.php";
-    }
+        $page = $_GET["page"];
+        $page = $_GET["page"];
+            $file = "view/modules/" . $page . ".php";
+            include($file);
 } else {
     include "view/modules/home.php";
 }

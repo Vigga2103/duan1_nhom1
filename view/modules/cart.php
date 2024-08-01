@@ -15,12 +15,10 @@
                       </thead>
                       <tbody>
                       <?php 
-                      $total = 0;
-                    //   $value["price"];
-                    //   $int_value = number_format($value["price"], 0, '', '');
-                    if(isset($_SESSION["cart"])){
-                        foreach($_SESSION["cart"] as $key=>$value){
-                 ?>
+                            $total = 0;
+                            if(isset($_SESSION["cart"])){
+                                foreach($_SESSION["cart"] as $key=>$value){
+                        ?>
                           <tr>
                               <td>
                                   <div class="media">
@@ -40,7 +38,7 @@
                                         <span class="input-group-btn" onclick="minesCart()"> 
                                         <button type="button" class="btn btn-primary minus" data-product="<?php echo  $value['price'] ?>" data-type="minesCart" data-field=""> - </button>
                                         </span>
-                                        <input type="number" name="quantity" id="quantity" data-product="<?php echo  $value['price'] ?>"  maxlength="12" value="<?php echo $value["quantity"]; ?>" title="Quantity:" class="input-number" min="1" max="10"  onchange="validateQuantityCart()">
+                                        <input type="number" onblur="updateCart(<?php echo  $key;?>)" name="quantity_<?php echo  $key;?>" id="quantity_<?php echo  $key;?>" data-product="<?php echo  $value['price'] ?>"  maxlength="12" value="<?php echo $value["quantity"]; ?>" title="Quantity:" class="input-number" min="1" max="10" >
                                         <span class="input-group-btn" onclick="plusCart()">
                                         <button type="button" class="btn btn-primary plus" data-type="plusCart" data-field=""> + </button>
                                         </span>
@@ -49,7 +47,7 @@
                               <td>
                                   <h5 class="total-product"><?php echo number_format($value["price"]*$value["quantity"], 0, '', ','); $total +=  $value["price"]*$value["quantity"];?></h5>
                               </td>
-                              <td><button type="button" class="btn btn-danger">Xóa</button></td>
+                              <td><a href="javascript:void(0)" onclick="deleteCart(<?php echo  $key;?>)"><button type="button" class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa sản phẩm này ra khỏi giỏ hàng không?');">Xóa</button></a></a></td>
                           </tr>
                  <?php 
                        }
@@ -57,7 +55,7 @@
                  ?>
                           <tr class="bottom_button">
                               <td>
-                                  <a class="button" href="#">Update Cart</a>
+                                  
                               </td>
                               <td>
 
@@ -68,8 +66,8 @@
                               <td>
                                   <div class="cupon_text d-flex align-items-center">
                                       <input type="text" placeholder="Coupon Code">
-                                      <a class="primary-btn" href="#">Apply</a>
-                                      <a class="button" href="#">Have a Coupon?</a>
+                                      <a class="primary-btn" href="#">Áp mã</a>
+                                      <a class="button" href="#">Bạn có mã giảm giá không?</a>
                                   </div>
                               </td>
                           </tr>
@@ -81,7 +79,7 @@
 
                               </td>
                               <td>
-                                  <h5>Subtotal</h5>
+                                  <h5>Tổng só tiền hàng</h5>
                               </td>
                               <td>
                                   <h5><span class="total-cart" data-total-cart="<?php echo $total; ?>"><?php echo number_format($total, 0, '', ',');?></span></h5>
@@ -95,29 +93,18 @@
 
                               </td>
                               <td>
-                                  <h5>Shipping</h5>
+                                  <h5>Phụ phí ship</h5>
                               </td>
                               <td>
                                   <div class="shipping_box">
                                       <ul class="list">
-                                          <li><a href="#">Flat Rate: $5.00</a></li>
-                                          <li><a href="#">Free Shipping</a></li>
-                                          <li><a href="#">Flat Rate: $10.00</a></li>
-                                          <li class="active"><a href="#">Local Delivery: $2.00</a></li>
+                                          <li><a href="#">Giá nội thành: 50,000</a></li>
+                                          <li><a href="#">Giá ngoại thành: 150,000</a></li>
+                                          <li><a href="#">Giá ngoại quốc: 3,000,000</a></li>
+                                          <li class="active"><a href="#">Miễn phí vận chuyển</a></li>
                                       </ul>
-                                      <h6>Calculate Shipping <i class="fa fa-caret-down" aria-hidden="true"></i></h6>
-                                      <select class="shipping_select">
-                                          <option value="1">Bangladesh</option>
-                                          <option value="2">India</option>
-                                          <option value="4">Pakistan</option>
-                                      </select>
-                                      <select class="shipping_select">
-                                          <option value="1">Select a State</option>
-                                          <option value="2">Select a State</option>
-                                          <option value="4">Select a State</option>
-                                      </select>
-                                      <input type="text" placeholder="Postcode/Zipcode">
-                                      <a class="gray_btn" href="#">Update Details</a>
+                                     
+                                     
                                   </div>
                               </td>
                           </tr>
@@ -133,8 +120,8 @@
                               </td>
                               <td>
                                   <div class="checkout_btn_inner d-flex align-items-center">
-                                      <a class="gray_btn" href="#">Continue Shopping</a>
-                                      <a class="primary-btn ml-2" href="#">Proceed to checkout</a>
+                                      <a class="gray_btn" href="index.php?page=shop">Tiếp tục mua sắm</a>
+                                      <a class="primary-btn ml-2" href="index.php?page=payment">Thanh toán</a>
                                   </div>
                               </td>
                           </tr>

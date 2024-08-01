@@ -2,7 +2,7 @@
 
 ob_start();
 session_start();
-if (isset($_SESSION["login"])) {
+if (isset($_SESSION["loginadmin"])) {
     header("location: index.php");
 }
 date_default_timezone_set('Asia/Ho_Chi_Minh') .
@@ -43,9 +43,10 @@ date_default_timezone_set('Asia/Ho_Chi_Minh') .
                 <section class="login_content">
                     <form method="post">
                         <?php
-                        if (isset($_POST["login"])) {
+                        if (isset($_POST["loginadmin"])) {
                             // echo "<pre>";
                             // print_r($_POST);
+                            // die;
                             $admin_name = trim($_POST["admin_name"]); //Cắt khoảng trắng đằng trc chuỗi và sau chuỗi
                             $password = md5(trim($_POST["password"]));
                             $sqlLogin = "SELECT * FROM admin WHERE admin_name = '$admin_name' and `password`= '$password'";
@@ -53,7 +54,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh') .
                             if (mysqli_num_rows($result)) {
                                 //Nếu mà ra đc kết quả tạo session
                                 $rowlogin = mysqli_fetch_row($result);
-                                $_SESSION["login"] = $rowlogin;
+                                $_SESSION["loginadmin"] = $rowlogin;
                                 header("location:index.php");
                             } else {
                                 //Lỗi trả về login
@@ -69,7 +70,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh') .
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" required="" />
                         </div>
                         <div>
-                            <button class="btn btn-primary submit" type="submit" name="login">Login</button>
+                            <button class="btn btn-primary submit" type="submit" name="loginadmin">Login</button>
                             <!-- <a class="btn btn-default submit" href="index.html">Log in</a> -->
                             <a class="reset_pass" href="#">Lost your password?</a>
                         </div>

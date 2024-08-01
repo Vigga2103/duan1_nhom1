@@ -75,8 +75,8 @@
                             <td>
                                 <a href="index.php?page=updateProduct&id=<?php echo $row["pro_id"] ?>&edit=1">
                                     <i class="fa fa-pencil" style="color:#FF8C00"> Sửa </i></a>
-                                <!-- <a href="index.php?page=listProduct&id=<?php echo $row["pro_id"] ?>&del=1" onclick=" return confirm('Bạn có muốn xóa không?');">
-                                    <i class="fa fa-trash" style="color:red"> Xóa </i></a> -->
+                                <a href="index.php?page=listProduct&id=<?php echo $row["pro_id"] ?>&del=1" onclick=" return confirm('Bạn có muốn xóa không?');">
+                                    <i class="fa fa-trash" style="color:red"> Xóa </i></a>
                             </td>
                         </tr>
                 <?php

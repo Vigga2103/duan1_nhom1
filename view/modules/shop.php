@@ -52,7 +52,7 @@
                                  <div class="col-md-6 col-lg-4">
                                      <div class="card text-center card-product">
                                          <div class="card-product__img">
-                                             <img class="card-img" src="<?php echo $rowPro["images"]; ?>" alt="<?php echo $rowPro["pro_name"]; ?>">
+                                             <img style="height:305px" class="card-img" src="<?php echo $rowPro["images"]; ?>" alt="<?php echo $rowPro["pro_name"]; ?>">
                                        <ul class="card-product__imgOverlay">
                                                  <li><button><i class="ti-search"></i></button></li>
                                                  <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -61,7 +61,7 @@
                                          </div>
                                          <div class="card-body">
                                              <h4 class="card-product__title"><a href="index.php?page=detail-product&id=<?php echo $rowPro["pro_id"] ?>"><?php echo $rowPro["pro_name"]; ?></a></h4>
-                                             <p class="card-product__price"><?php echo $rowPro["price"]; ?></p>
+                                             <p class="card-product__price"><?php echo number_format( $rowPro["price"], 0, '', ','); ?></p>
                                          </div>
                                      </div>
                                  </div>

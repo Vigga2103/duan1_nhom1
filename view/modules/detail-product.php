@@ -1,4 +1,5 @@
  <!--================Single Product Area =================-->
+ 
  <div class="product_image_area">
      <div class="container">
          <div class="row s_product_inner">
@@ -26,14 +27,14 @@
              <div class="col-lg-6">
                  <div class="owl-carousel owl-theme s_Product_carousel">
                      <div class="single-prd-item">
-                         <img class="img-fluid" src="<?php echo $rowDetailPro[5]; ?>" alt="">
+                         <img style="height:433.3px" class="img-fluid" src="<?php echo $rowDetailPro[5]; ?>" alt="">
                      </div>
                  </div>
              </div>
              <div class="col-lg-5 offset-lg-1">
                  <div class="s_product_text">
                      <h3><?php echo $rowDetailPro[1];?></h3>
-                     <h2><?php echo $rowDetailPro[6];?></h2>
+                     <h2><?php echo number_format( $rowDetailPro[6], 0, '', ','); ?></h2>
                      <ul class="list">
                          <li><a class="active" href="#"><span>Category</span> : <?php echo $rowDetailProCate[12];?></a></li>
                          <li><a href="#"><span>Factory</span> : <?php echo $rowDetailProFac[12];?></a></li>
@@ -93,7 +94,7 @@
                     
                     <div >
                     <p class="addtocart">
-                            <a class="button primary-btn btn-addtocart" href="index.php?page=cart" onclick="addCart(<?php echo $rowDetailPro[0];?>)">Add to Cart</a>
+                            <a class="button primary-btn btn-addtocart" href="javascript:void(0)" onclick="addCart(<?php echo $rowDetailPro[0];?>)">Add to Cart</a>
                     </p>
                      </div>
                  </div>

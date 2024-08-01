@@ -19,8 +19,8 @@
         <span>Welcome,</span>
         <h2>
           <?php
-          if (isset($_SESSION["login"])) {
-            echo  $_SESSION["login"]["1"];
+          if (isset($_SESSION["loginadmin"])) {
+            echo  $_SESSION["loginadmin"]["1"];
           }
           ?>
         </h2>
@@ -44,19 +44,18 @@
             <ul class="nav child_menu">
               <li><a href="index.php?page=addProduct">Thêm mới sản phẩm</a></li>
               <li><a href="index.php?page=listProduct">Danh sách sản phẩm</a></li>
-              <li><a href="index.php?page=updateProduct">Danh sách sản phẩm</a></li>
+              <li><a href="index.php?page=updateProduct">Cập nhật sản phẩm</a></li>
             </ul>
           </li>
           <li><a><i class="fa fa-tachometer"></i> Quản lí màu sắc <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              >
+              
               <li><a href="index.php?page=color">Màu sắc</a></li>
               
             </ul>
           </li>
           <li><a><i class="fa fa-arrows-v"></i> Quản lí kích cỡ <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="index.php?page=category">Kích cỡ</a></li>
               
               <li><a href="index.php?page=size">Quản lí kích cỡ</a></li>
               
@@ -78,7 +77,14 @@
           <li><a><i class="fa fa-calendar"></i> Quản lí đơn hàng <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
              
-              <li><a href="project_detail.html">Danh sách đơn hàng</a></li>
+              <li><a href="index.php?page=oder">Danh sách đơn hàng</a></li>
+             
+            </ul>
+          </li>
+          <li><a><i class="fa fa-money"></i> Quản lí phương thức thanh toán <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+             
+              <li><a href="index.php?page=payment">Danh sách phương thức</a></li>
              
             </ul>
           </li>

@@ -145,7 +145,7 @@
 								<td>
 									<a href="index.php?page=category&id=<?php echo $row["cat_id"] ?>&edit=1">
 										<i class="fa fa-pencil" style="color:#0066FF"> Edit </i></a>
-									<!-- <a href="index.php?page=category&id=<?php echo $row["cat_id"] ?>&del=1" onclick="return confirm('Bạn có muốn xóa không?');"><i class="fa fa-trash" style="color:red"> Xóa </i></a> -->
+									<a href="index.php?page=category&id=<?php echo $row["cat_id"] ?>&del=1" onclick="return confirm('Bạn có muốn xóa không?');"><i class="fa fa-trash" style="color:red"> Xóa </i></a>
 								</td>
 							</tr>
 					<?php

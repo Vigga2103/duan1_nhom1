@@ -118,8 +118,8 @@
         <div class="x_content">
 
             <table class="table table-bordered">
-                <button class="btn btn-btn-primary"> <a href="index.php?page=size">
-                        <i class="fa fa-plus" style="color:#0066FF"> Thêm </i></a></button>
+                <!-- <button class="btn btn-btn-primary"> <a href="index.php?page=size">
+                        <i class="fa fa-plus" style="color:#0066FF"> Thêm </i></a></button> -->
                 <thead>
                     <tr>
                         <th>Id</th>

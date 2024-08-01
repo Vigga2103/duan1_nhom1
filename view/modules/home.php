@@ -6,7 +6,7 @@
             <div class="row no-gutters align-items-center pt-60px">
                 <div class="col-5 d-none d-sm-block">
                     <div class="hero-banner__img">
-                        <img class="img-fluid" src="view/img/home/hero-banner.png" alt="">
+                        <img class="img-fluid" src="view/img/home/banner.png" alt="">
                     </div>
                 </div>
                 <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
@@ -70,7 +70,7 @@
                         <div class="col-md-6 col-lg-4 col-xl-3">
                         <div class="card text-center card-product">
                             <div class="card-product__img">
-                                <img class="img-fluid" src="<?php echo $rowPro["images"]; ?>" alt="<?php echo $rowPro["pro_name"]; ?>">
+                                <img style="height:305px" class="img-fluid" src="<?php echo $rowPro["images"]; ?>" alt="<?php echo $rowPro["pro_name"]; ?>">
                                 <ul class="card-product__imgOverlay">
                                     <li><button><i class="ti-search"></i></button></li>
                                     <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="card-body">
                                 <h4 class="card-product__title"><a href="index.php?page=detail-product&id=<?php echo $rowPro["pro_id"]; ?>"><?php echo $rowPro["pro_name"]; ?></a></h4>
-                                <p class="card-product__price"><?php echo $rowPro["price"]; ?></p>
+                                <p class="card-product__price"><?php echo number_format( $rowPro["price"], 0, '', ','); ?></p>
                             </div>
                         </div>
                 </div>
@@ -129,7 +129,7 @@
                 ?>
                         <div class="card text-center card-product">
                             <div class="card-product__img">
-                                <img class="img-fluid" src="<?php echo $rowPro["images"]; ?>" alt="<?php echo $rowPro["pro_name"]; ?>">
+                                <img style="height:305px" class="img-fluid" src="<?php echo $rowPro["images"]; ?>" alt="<?php echo $rowPro["pro_name"]; ?>">
                                 <ul class="card-product__imgOverlay">
                                     <li><button><i class="ti-search"></i></button></li>
                                     <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -138,7 +138,7 @@
                             </div>
                             <div class="card-body">
                                 <h4 class="card-product__title"><a href="index.php?page=detail-product&id=<?php echo $rowPro["pro_id"]; ?>"><?php echo $rowPro["pro_name"]; ?></a></h4>
-                                <p class="card-product__price"><?php echo $rowPro["price"]; ?></p>
+                                <p class="card-product__price"><?php echo number_format( $rowPro["price"], 0, '', ','); ?></p>
                             </div>
                         </div>
                 <?php
@@ -180,7 +180,7 @@
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                     <div class="card card-blog">
                         <div class="card-blog__img">
-                            <img class="card-img rounded-0" src="view/img/blog/blog2.png" alt="">
+                            <img class="card-img rounded-0" src="view/img/blog/blog2.png" alt="" style="height:305px">
                         </div>
                         <div class="card-body">
                             <ul class="card-blog__info">
