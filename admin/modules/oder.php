@@ -12,7 +12,6 @@
                             <th class="column-title">Số thứ tự </th>
                             <th class="column-title">Ngày tạo đơn hàng</th>
                             <th class="column-title">Mã đơn hàng</th>
-                            <th class="column-title">Tên dăng nhập</th>
                             <th class="column-title">Tên người mua hàng</th>
                             <th class="column-title">Email đặt hàng </th>
                             <th class="column-title">Số điện thoại </th>
@@ -34,8 +33,6 @@
                                     $i = 0; // biến đếm 
                                     while ($rowSelectOder = mysqli_fetch_assoc($resultSelectOder)) { //Kiểm tra tất cả các điều kiện trước khi lặp.
                                         $i++;
-
-                                
                             ?>
                           <tr class="odd pointer">
                             <td class="a-center ">
@@ -44,7 +41,6 @@
                             <td class=" "><?php echo $i; ?></td>
                             <td class=" "><?php echo $rowSelectOder["date_create"]; ?></td>
                             <td class=" "><?php echo $rowSelectOder["oder_id"]; ?></td>
-                            <td class=" "><?php echo $rowSelectOder["ctm_id"]; ?></td>
                             <td class=" "><?php echo $rowSelectOder["firt_name"]." ".$rowSelectOder["last_name"]; ?></td>
                             <td class=" "><?php echo $rowSelectOder["email"]; ?></td>
                             <td class=" "><?php echo $rowSelectOder["phone"]; ?></td>

@@ -36,7 +36,7 @@
                               <td>
                                 <div class="record-product" style="width:200px;">
                                         <span class="input-group-btn" onclick="minesCart()"> 
-                                        <button type="button" class="btn btn-primary minus" data-product="<?php echo  $value['price'] ?>" data-type="minesCart" data-field=""> - </button>
+                                        <button type="button" class="btn btn-primary minus" data-type="minesCart" data-field=""> - </button>
                                         </span>
                                         <input type="number" onblur="updateCart(<?php echo  $key;?>)" name="quantity_<?php echo  $key;?>" id="quantity_<?php echo  $key;?>" data-product="<?php echo  $value['price'] ?>"  maxlength="12" value="<?php echo $value["quantity"]; ?>" title="Quantity:" class="input-number" min="1" max="10" >
                                         <span class="input-group-btn" onclick="plusCart()">

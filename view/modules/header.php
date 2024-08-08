@@ -26,7 +26,7 @@ include "connection.php";
         <div class="main_menu">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
-                    <a class="navbar-brand logo_h" href="index.php"><img style="width: 143px;" src="view/img/logo.png" alt=""></a>
+                    <a class="navbar-brand logo_h" href="index.php"><img style="width: 143px;" src="view/img/logo1.png" alt=""></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -63,8 +63,8 @@ include "connection.php";
                                 <div class="dropdown-menu">
                                     <?php
                                     if (isset($_SESSION["loginCustomer"])) {
-                                        echo '<button class="dropdown-item" type="button">Profile</button>';
-                                        echo '<button class="dropdown-item" type="button"><a href="index.php?page=logout">Đăng xuát</a></button>';
+                                        echo '<button class="dropdown-item" type="button"><a href="index.php?page=profile&id=' . $_SESSION["loginCustomer"][0] . '">Thông tin</a></button>';
+                                        echo '<button class="dropdown-item" type="button"><a href="index.php?page=logout">Đăng xuất</a></button>';
                                     } else {
                                         echo '<button class="dropdown-item" type="button"><a href="index.php?page=login">Đăng nhập</a></button>';
                                         echo '<button class="dropdown-item" type="button"><a href="index.php?page=register">Đăng ký</a></button>';

@@ -44,9 +44,6 @@ date_default_timezone_set('Asia/Ho_Chi_Minh') .
                     <form method="post">
                         <?php
                         if (isset($_POST["loginadmin"])) {
-                            // echo "<pre>";
-                            // print_r($_POST);
-                            // die;
                             $admin_name = trim($_POST["admin_name"]); //Cắt khoảng trắng đằng trc chuỗi và sau chuỗi
                             $password = md5(trim($_POST["password"]));
                             $sqlLogin = "SELECT * FROM admin WHERE admin_name = '$admin_name' and `password`= '$password'";
@@ -55,10 +52,10 @@ date_default_timezone_set('Asia/Ho_Chi_Minh') .
                                 //Nếu mà ra đc kết quả tạo session
                                 $rowlogin = mysqli_fetch_row($result);
                                 $_SESSION["loginadmin"] = $rowlogin;
-                                header("location:index.php");
+                                header("location: index.php");
                             } else {
                                 //Lỗi trả về login
-                                header("location:login.php");
+                                header("location: login.php");
                             }
                         }
                         ?>

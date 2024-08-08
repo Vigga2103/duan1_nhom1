@@ -52,7 +52,7 @@
                                  <div class="col-md-6 col-lg-4">
                                      <div class="card text-center card-product">
                                          <div class="card-product__img">
-                                             <img style="height:305px" class="card-img" src="<?php echo $rowPro["images"]; ?>" alt="<?php echo $rowPro["pro_name"]; ?>">
+                                             <img style="height:280px;width:200px;" class="card-img" src="<?php echo $rowPro["images"]; ?>" alt="<?php echo $rowPro["pro_name"]; ?>">
                                        <ul class="card-product__imgOverlay">
                                                  <li><button><i class="ti-search"></i></button></li>
                                                  <li><button><i class="ti-shopping-cart"></i></button></li>

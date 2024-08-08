@@ -27,7 +27,7 @@
              <div class="col-lg-6">
                  <div class="owl-carousel owl-theme s_Product_carousel">
                      <div class="single-prd-item">
-                         <img style="height:433.3px" class="img-fluid" src="<?php echo $rowDetailPro[5]; ?>" alt="">
+                         <img style="height:283.3px;width:250px;" class="img-fluid" src="<?php echo $rowDetailPro[5]; ?>" alt="">
                      </div>
                  </div>
              </div>

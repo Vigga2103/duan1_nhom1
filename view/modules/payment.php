@@ -1,3 +1,10 @@
+<?php
+    ob_start();
+    // if (isset($_SESSION["loginCustomer"])) {
+    //     header("location: index.php");
+    // }
+        include("connection.php");
+    ?>
 <section class="checkout_area section-margin--small">
     <div class="container">
    
@@ -26,13 +33,18 @@
                         // $data["payment"] = $_POST["payment"][0]; //Khi chuyển sang dâta này nó chỉ đơn thuần là mảng một chiều còn k gán ngc lại nó là mảng hai chiều.
                         // echo "<pre>";
                         // print_r($data);
-                        $ctm_id = isset($_SESSION["loginCustomer"]["ctm_id"])?$_SESSION["loginCustomer"]["ctm_id"]:0;
+                        
+                        $ctm_id = isset($_SESSION["loginCustomer"][0])?$_SESSION["loginCustomer"][0]:0;
+                        $sqlSelect = "SELECT * FROM customer WHERE ctm_id = $ctm_id";  
+                        $resultSelect = mysqli_query($conn, $sqlSelect) or die("Lỗi truy vấn lấy dữ liệu");  
+                        $rowDetailProCate = mysqli_fetch_row($resultSelect);
+                        
                         $firt_name = $_POST["firt_name"];
                         $last_name = $_POST["last_name"];
+                        $ctm_name = $firt_name.' '. $last_name;
                         $phone = $_POST["phone"];
                         $email = $_POST["email"];
                         $address = $_POST["address"];
-                        $description = $_POST["description"];
                         $status = 0;
                         $subtotal = 0;
                         $odertotal = 0;
@@ -48,8 +60,8 @@
                         $date_create = $dateTime;   
                         $payment_id = $_POST["payment"][0];
 
-                        $sqlInsertOder = "INSERT INTO oder (ctm_id,firt_name,last_name,phone,email,`address`,`description`,date_create,payment_id,`status`,odertotal)";
-                        $sqlInsertOder .= "VALUES('$ctm_id','$firt_name','$last_name','$phone','$email','$address','$description','$date_create','$payment_id','$status','$odertotal')";
+                        $sqlInsertOder = "INSERT INTO oder (ctm_id,firt_name,last_name,phone,email,`address`,date_create,payment_id,`status`,odertotal)";
+                        $sqlInsertOder .= "VALUES('$ctm_id','$firt_name','$last_name','$phone','$email','$address','$date_create','$payment_id','$status','$odertotal')";
                         // echo $sqlInsertOder;
                         mysqli_query($conn, $sqlInsertOder) or die("Lỗi câu lệnh thêm mới");
                         $last_id = mysqli_insert_id($conn);//Lấy ra id vừa insert.
@@ -67,54 +79,63 @@
                         }
                     ?>   
                     <?php 
-                        if(isset($_SESSION["loginCustomer"]["ctm_id"])){
+                        if(isset($_SESSION["loginCustomer"])){
                             ?>
+                             <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" id="ctm_name" name="ctm_name" placeholder="Tên đăng nhập"
+                                    <?php if(isset($_SESSION["loginCustomer"])) { ?>
+                                        value="<?php echo $_SESSION["loginCustomer"][1]; ?>"
+                                    <?php } ?>
+                                >
+                                <span class="placeholder" data-placeholder="Username"></span>
+                            </div>
                             <div class="col-md-12 form-group p_star">
                                 <input type="text" class="form-control" id="firt_name" name="firt_name" placeholder="First Name"
-                                    <?php if(isset($_SESSION["loginCustomer"]["ctm_id"])) { ?>
-                                        value="<?php echo $_SESSION["loginCustomer"]["first_name"]; ?>"
+                                    <?php if(isset($_SESSION["loginCustomer"])) { ?>
+                                        value="<?php echo $_SESSION["loginCustomer"][9]; ?>"
                                     <?php } ?>
                                 >
                                 <span class="placeholder" data-placeholder="First name"></span>
                             </div>
                             <div class="col-md-12 form-group p_star">
                                 <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name"
-                                    <?php if(isset($_SESSION["loginCustomer"]["ctm_id"])) { ?>
-                                        value="<?php echo $_SESSION["loginCustomer"]["last_name"]; ?>"
+                                    <?php if(isset($_SESSION["loginCustomer"])) { ?>
+                                        value="<?php echo $_SESSION["loginCustomer"][10]; ?>"
                                     <?php } ?>
                                 >
                                 <span class="placeholder" data-placeholder="Last name"></span>
                             </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" id="gender" name="gender" placeholder="gender"
+                                    <?php if(isset($_SESSION["loginCustomer"])) { ?>
+                                        value="<?php echo $_SESSION["loginCustomer"][5]; ?>"
+                                    <?php } ?>
+                                >
+                                <span class="placeholder"></span>
+                            </div>
                             <div class="col-md-12 form-group">
                                 <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number"
-                                    <?php if(isset($_SESSION["loginCustomer"]["ctm_id"])) { ?>
-                                        value="<?php echo $_SESSION["loginCustomer"]["phone"]; ?>"
+                                    <?php if(isset($_SESSION["loginCustomer"])) { ?>
+                                        value="<?php echo $_SESSION["loginCustomer"][3]; ?>"
                                     <?php } ?>
                                 >
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="text" class="form-control" id="email" name="email" placeholder="Email"
-                                    <?php if(isset($_SESSION["loginCustomer"]["ctm_id"])) { ?>
-                                        value="<?php echo $_SESSION["loginCustomer"]["email"]; ?>"
+                                    <?php if(isset($_SESSION["loginCustomer"])) { ?>
+                                        value="<?php echo $_SESSION["loginCustomer"][4]; ?>"
                                     <?php } ?>
                                 >
                             </div>
                             <div class="col-md-12 form-group p_star">
                                 <input type="text" class="form-control" id="address" name="address" placeholder="Address"
-                                    <?php if(isset($_SESSION["loginCustomer"]["ctm_id"])) { ?>
-                                        value="<?php echo $_SESSION["loginCustomer"]["address"]; ?>"
+                                    <?php if(isset($_SESSION["loginCustomer"])) { ?>
+                                        value="<?php echo $_SESSION["loginCustomer"][6]; ?>"
                                     <?php } ?>
                                 >
                                 <span class="placeholder"></span>
                             </div>
-                            <div class="col-md-12 form-group p_star">
-                                <input type="text" class="form-control" id="description" name="description" placeholder="Description"
-                                    <?php if(isset($_SESSION["loginCustomer"]["ctm_id"])) { ?>
-                                        value="<?php echo $_SESSION["loginCustomer"]["description"]; ?>"
-                                    <?php } ?>
-                                >
-                                <span class="placeholder"></span>
-                            </div>
+                            
                     <?php
                         } else{
                     
