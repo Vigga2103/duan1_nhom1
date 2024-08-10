@@ -91,21 +91,21 @@
           <li><a><i class="fa fa-users"></i> Quản lí người dùng  <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
               
-              <li><a href="index.php?page=user">Danh sách người dùng</a></li>
+              <li><a href="index.php?page=listUser">Danh sách người dùng</a></li>
 
             </ul>
           </li>
           <li><a><i class="fa fa-pie-chart"></i> Thống kê  <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
               
-              <li><a href="index.php?page=user">Danh sách bán hàng</a></li>
+              <li><a href="index.php?page=listUser">Danh sách bán hàng</a></li>
 
             </ul>
           </li>
-          <li><a><i class="fa fa-comment"></i> Quản lí bình luận  <span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-comment"></i> Quản lí phản hồi  <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
               
-              <li><a href="index.php?page=user">Danh sách bình luận</a></li>
+              <li><a href="index.php?page=listFeedback">Danh sách phản hồi</a></li>
 
             </ul>
           </li>

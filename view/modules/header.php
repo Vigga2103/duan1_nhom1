@@ -9,7 +9,7 @@ include "connection.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tmen - Home</title>
-    <link rel="icon" href="view/img/logo.png" type="image/png">
+    <link rel="icon" href="view/img/logo1.png" type="image/png">
     <link rel="stylesheet" href="view/vendors/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="view/vendors/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="view/vendors/themify-icons/themify-icons.css">
@@ -39,9 +39,9 @@ include "connection.php";
                                 <a href="index.php?page=shop" class="nav-link">Mua hàng</a>
                             </li>
                             <li class="nav-item">
-                                <a href="index.php?page=blog" class="nav-link">Blog</a>
+                                <a href="index.php?page=store" class="nav-link">Cửa Hàng</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="index.php?page=contact">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php?page=contact">Liên Hệ</a></li>
                         </ul>
 
                         <ul class="nav-shop">
